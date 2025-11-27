@@ -26,11 +26,7 @@ const Hero = () => {
         setCurrentIndex(upcomingVideoIndex);
     }
 
-    useEffect(() => {
-        if(loadedVideos === totalVideos-1){
-            setIsLoading (false);
-        }
-    }, [loadedVideos]);
+    
 
 
     useGSAP(() => {
@@ -42,7 +38,7 @@ const Hero = () => {
                 width: '100%',
                 height: '100%',
                 duration: 1,
-                ease: 'power2.inOut',
+                ease: 'power1.inOut',
                 onStart: () => nextVideoRef.current.play(),
             });
 
@@ -77,15 +73,7 @@ const Hero = () => {
   return (
    <div className="relative h-dvh w-screen overflow-x-hidden">
 
-    {isLoading && (
-        <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
-            <div className="three-body">
-                <div className="three-body__dot"/>
-                <div className="three-body__dot"/>
-                <div className="three-body__dot"/>
-            </div>
-        </div>
-    )}
+    
     <div id="video-frame" className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue">
         <div>
             <div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg"> 
